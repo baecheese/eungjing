@@ -14,9 +14,7 @@ app = Flask(__name__)
 
 # eungjing module
 from model.user import User
-
-
-
+from model.eungalog import Eungalog
 
 @app.route('/')
 def index () :
@@ -26,12 +24,12 @@ def index () :
 def create_user() :
 	# json 데이터를 프론트로부터 받아서 user 클래스로 변경.
 	json = request.json
-	user = User(json['id'], json['name'])
+	user = User(json['name'], json['password'], json['hint_Q'], json['hint_A'])
 	return "success"
 
 @app.route('/user', methods=['GET'])
 def read_user() :
-	user = User(1, "jing")
+	user = User("ppu", "1234", "3", "cheese")
 	# user class를 json으로 변경.
 	return jsonify(user.__dict__)
 
