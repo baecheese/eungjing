@@ -33,7 +33,7 @@ def read_user() :
 	# user class를 json으로 변경.
 	return jsonify(user.__dict__)
 
-
+# 충돌 테스트를 위한 주석.
 
 # start server
 if __name__ == "__main__" :
