@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, jsonify, render_template, request, url_for
+from flask import Flask, jsonify, render_template, request, url_for, session, redirect
 app = Flask(__name__)
 
 ''' database 관련은 일단 주석처리 해둠. '''
@@ -32,6 +32,18 @@ def create_user() :
 def user_form() :
 	return render_template('user_form.html')
 
+@app.route('/user/login', methods=['POST'])
+def login() :
+	# 권한 체크
+	user = request.form
+	print user
+
+	if True : # db에 해당하는 user name이 있고 pw가 일치한다면,
+		session['logined_user_name'] = user['name']
+		return redirect(url_for('form_eungalog'))
+	else :
+		return False
+
 @app.route('/user', methods=['GET'])
 def read_user() :
 	user = User("ppu", "1234", "3", "cheese", "1", "1")
@@ -57,6 +69,14 @@ def read_eungalog(user_name) :
 	# user class를 json으로 변경.
 	return jsonify(eungalog.__dict__)
 
+@app.route('/eungalog', methods=['GET'])
+def form_eungalog () :
+	user_name = session['logined_user_name'] # 활용해서 페이지 렌더링.
+	return render_template('eungalog.html', user_name=user_name)
+
+
+# 비밀키
+app.secret_key="dfdsfdafsdfa181280083ljkandfan12974ldsfjassfasdfalsknfafnsd"
 
 # start server
 if __name__ == "__main__" :

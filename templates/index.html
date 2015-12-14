@@ -13,13 +13,13 @@
         <div class="form-title">응가하라 2030</div>
     </div>
 
-    <form class="sign-box" action="/user/login">
+    <form class="sign-box" action="/user/login" method="post">
         <div class="form-el-bind">
             <div class="input-bind-box">
-                <input id="id" placeholder="아이디" />
-                <input id="password" placeholder="비밀번호" />
+                <input type="text" name="name" id="name" placeholder="아이디" />
+                <input type="password" name="password" id="password" placeholder="비밀번호" />
             </div>
-            <div class="eung-button" type="button">로그인</div>
+            <button type="submit" class="eung-button">로그인</button>
         </div>
         <div class="signup-link-box">
             <a href="/user/form">회원가입</a>
