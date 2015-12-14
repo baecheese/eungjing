@@ -28,6 +28,10 @@ def create_user() :
 				, json['hint_A'], json['job'], json['smoking'])
 	return "success"
 
+@app.route('/user/form', methods=['GET'])
+def user_form() :
+	return render_template('user_form.html')
+
 @app.route('/user', methods=['GET'])
 def read_user() :
 	user = User("ppu", "1234", "3", "cheese", "1", "1")
@@ -44,9 +48,12 @@ def create_eungalog() :
 	# databas에 eungalog를 저장한다.
 	return jsonify(eungalog.__dict__)
 
-@app.route('/eungalog', methods=['GET'])
-def read_eungalog() :
-	eungalog = Eungalog("1", "1", "2", "7", "jing")
+@app.route('/eungalog/user/<string:user_name>', methods=['GET'])
+def read_eungalog(user_name) :
+	# 유저 데이터를 받을 것.
+	# 데이터베이스에서 user_name 기준으로 데이터를 꺼내올 것. 리스트로.
+	# 시간 역순 대로 돌려줄 것.(가장 최근 것이 가장 위로)
+	eungalog = Eungalog("1", "1", "2", "7", user_name)
 	# user class를 json으로 변경.
 	return jsonify(eungalog.__dict__)
 
