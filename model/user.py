@@ -38,9 +38,9 @@ class User :
 
 	def select_smoking (self, smoking) :
 		if smoking == "1" :
-			return "YES"
+			return True
 		elif smoking == "2" :
-			return "NO"
+			return False
 		else :
 			"none";
 
