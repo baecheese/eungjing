@@ -1,15 +1,15 @@
 /* 낡은 데이터베이스와 유저가 있다면 일단 제거하고서 시작. */
 drop database EUNGJING;
 
-drop user 'eungjin'@'localhost';
+drop user 'eungjing'@'localhost';
 
 /* DB 생성 */
 Create DATABASE EUNGJING DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 /* User 생성 및 DB권한 주기 */
-Create User eungjin@'localhost' identified by 'eungjin';
+Create User eungjing@'localhost' identified by 'eungjing';
 
-Grant all privileges on EUNGJING.* to eungjin@'localhost' identified by 'eungjin';
+Grant all privileges on EUNGJING.* to eungjing@'localhost' identified by 'eungjing';
 
 use EUNGJING;
 
