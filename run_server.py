@@ -2,19 +2,14 @@
 from flask import Flask, jsonify, render_template, request, url_for, session, redirect
 app = Flask(__name__)
 
-''' database 관련은 일단 주석처리 해둠. '''
-# from flaskext.mysql import MySQL
- 
-# mysql = MySQL()
-# app.config['MYSQL_DATABASE_USER'] = 'jing'
-# app.config['MYSQL_DATABASE_PASSWORD'] = ''
-# app.config['MYSQL_DATABASE_DB'] = 'eungjing'
-# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-# mysql.init_app(app)
-
 # eungjing module
 from model.user import User
 from model.eungalog import Eungalog
+from repository.userDao import UserDao
+from repository.eungalogDao import EungalogDao
+
+user_dao = UserDao()
+eungalog_dao = EungalogDao()
 
 @app.route('/')
 def index () :
@@ -22,11 +17,12 @@ def index () :
 
 @app.route('/user', methods=['POST'])
 def create_user() :
-	# json 데이터를 프론트로부터 받아서 user 클래스로 변경.
 	json = request.json
-	user = User(json['name'], json['password'], json['hint_Q']
-				, json['hint_A'], json['job'], json['smoking'])
-	return "success"
+	user = User(json['name'], json['password'], json['hint_Q'], json['hint_A'], json['job'], json['smoking'])
+	if user_dao.create_user(user) :
+		return "success"
+	else :
+		return "fail"
 
 @app.route('/user/form', methods=['GET'])
 def user_form() :
@@ -44,10 +40,9 @@ def login() :
 	else :
 		return False
 
-@app.route('/user', methods=['GET'])
-def read_user() :
-	user = User("ppu", "1234", "3", "cheese", "1", "1")
-	# user class를 json으로 변경.
+@app.route('/user/<string:user_name>', methods=['GET'])
+def read_user(user_name) :
+	user = user_dao.find_user(user_name)
 	return jsonify(user.__dict__)
 
 # ----------- 응가 일지 ---------------------
@@ -60,7 +55,7 @@ def create_eungalog() :
 	# databas에 eungalog를 저장한다.
 	return jsonify(eungalog.__dict__)
 
-@app.route('/eungalog/user/<string:user_name>', methods=['GET'])
+@app.route('/user/<string:user_name>/eungalog', methods=['GET'])
 def read_eungalog(user_name) :
 	# 유저 데이터를 받을 것.
 	# 데이터베이스에서 user_name 기준으로 데이터를 꺼내올 것. 리스트로.
