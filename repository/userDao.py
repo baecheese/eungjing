@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import MySQLdb
+import pymysql
 
 from model.user import User
 
@@ -27,7 +27,7 @@ class UserDao :
 
     def find_user(self, user_name) :
         user = None
-        db = MySQLdb.connect("localhost","eungjing","eungjing","EUNGJING" )
+        db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING" )
         cursor = db.cursor()
         try :
             cursor.execute('select * from USERS where name="%s"' % user_name)
