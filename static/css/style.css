@@ -74,9 +74,9 @@ form.sign-box {
 form.join-box {
     border: 1px solid black;
     margin: 0 auto;
-    width: 500px;
+    width: 345px;
     position: relative;
-    padding: 20px;
+    padding: 50px;
 }
 
 ul {
@@ -84,6 +84,64 @@ ul {
     padding-left:0px;
 }
 
+.form-el-bind ul li label {
+    margin-right: 10px;
+    display: inline-block;
+    width: 123px;
+    text-align: right;
+}
+
+.form-el-bind ul li {
+    margin-bottom: 10px;
+}
+
+.form-el-bind ul li input:not(.radio) {
+    width: 200px;
+}
+
 .button {
     float: right;
+    display: block;
+}
+
+.button button {
+    background: blue;
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+}
+
+.button a {
+    text-decoration: none;
+    background: ghostwhite;
+    color: black;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    display: inline-block;
+    font-size: 16px;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border: 2px outset buttonface;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    top: -2px;
+    position: relative;
+}
+
+.button a:active {
+    background: lightgray;
 }
