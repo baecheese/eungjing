@@ -17,12 +17,13 @@
                 <ul>
                     <li>
                         <label for="id">ID</label>
-                        <input type="text" id="id" name="id" value="" maxlength="15" placeholder="아이디" />
+                        <input type="text" id="id" name="id" value="" maxlength="15" placeholder="아이디" required />
                     </li>
 
                     <li>
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" maxlength="20" placeholder="비밀번호"/>
+                        <input type="password" id="password" name="password" maxlength="20" placeholder="비밀번호"
+                               required />
                     </li>
 
                     <li>
@@ -36,7 +37,8 @@
 
                     <li>
                         <label for="hint_A">비밀번호 찾기 답변</label>
-                        <input type="text" id="hint_A" name="hint_A" value=" " maxlength="30" placeholder="비밀번호 찾기 답변"/>
+                        <input type="text" id="hint_A" name="hint_A" value="" maxlength="30"
+                               placeholder="비밀번호 찾기 답변" required />
                     </li>
 
                     <li>
@@ -53,23 +55,21 @@
                     <li>
                         <label>담배피세요?</label>
                         <input type="radio" name="smoking" class="radio" value="YES">네
-                        <input type="radio" name="smoking" class="radio" value="NO">아니오
+                        <input type="radio" name="smoking" class="radio" value="NO" checked="checked" >아니오
                     </li>
                 </ul>
             </div>
             <div class="button">
-                <button>회원가입</button>
+                <button type="submit">회원가입</button>
                 <a href="/">취소</a>
             </div>
         </div>
     </form>
 
-<script type="text/javascript" src='/static/js/script.js'></script>
-
 <script type="text/javascript">
     window.addEventListener("load", function() {
-        var submitButton = document.querySelector(".join-box .button button")
-        submitButton.addEventListener("click", function(e) {
+        var submitForm = document.querySelector("form.join-box")
+        submitForm.addEventListener("submit", function(e) {
             e.preventDefault()
             var joinForm = document.querySelector(".join-box")
             var user = {
@@ -100,7 +100,6 @@
                 if (res.ok) {
                     alert("회원가입에 성공했습니다!")
                     location.href='/';
-                    console.log(res)
                 } else {
                     alert("회원가입에 실패했습니다.");
                 }
