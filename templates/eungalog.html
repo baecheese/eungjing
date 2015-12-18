@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>나날의 기록들</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-유저 네임은 {{ user_name }}
+    <div class="container">
+        <div id="sideBar">
+            <ul>
+                <li><a href="/user/logout">로그아웃</a></li>
+                <li class="userImage"><img src="/static/image/{{ user_image }}"></li>
+                <li id="loginedUserName">{{ user_name }}</li>
+            </ul>
+        </div>
+        <div id="content">
+            <form class="logForm">입력 폼</form>
+            <div>그래프</div>
+            <div class="logList">
+                <ul>
+                    <li>test data</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -10,28 +10,28 @@ class User :
 		self.smoking = self.select_smoking(smoking)
 
 	def select_hint_Q (self, hint_Q) :
-		if hint_Q == "1" :
+		if hint_Q == "1" or hint_Q == "where is your born location?" :
 			return "where is your born location?"
-		elif hint_Q == "2" :
+		elif hint_Q == "2" or hint_Q == "what your like color?" :
 			return "what your like color?"
-		elif hint_Q == "3" :
+		elif hint_Q == "3" or  hint_Q == "who is your pat?" :
 			return "who is your pat?"
 		else :
-			None;
+			return None
 
 	def select_job (self, job) :
-		if job == "1" :
+		if job == "1" or job == "man" :
 			return "man"
-		elif job == "2" :
+		elif job == "2" or job == "woman" :
 			return "woman"
-		elif job == "3" :
+		elif job == "3" or job == "cat" :
 			return "cat"
-		elif job == "4" :
+		elif job == "4" or job == "dog" :
 			return "dog"
-		elif job == "5" :
+		elif job == "5" or job == "etc" :
 			return "etc"
 		else :
-			"none";
+			return None
 
 	def select_smoking (self, smoking) :
 		if smoking == "YES" :
@@ -39,6 +39,6 @@ class User :
 		elif smoking == "NO" :
 			return False
 		else :
-			return None;
+			return None
 
 

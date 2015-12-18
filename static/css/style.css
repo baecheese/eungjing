@@ -1,3 +1,11 @@
+* {
+    margin:0;padding:0;
+}
+
+html,body, .container, .sideBar, .content {
+    height: 100%;
+}
+
 form.sign-box {
     border: 1px solid black;
     margin: 0 auto;
@@ -146,3 +154,25 @@ ul {
 .button a:active {
     background: lightgray;
 }
+
+.container {
+    margin-top: -50px;
+    padding-top: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#sideBar {
+    float:right;
+    width: 150px;
+    background: blueviolet;
+    overflow:hidden;
+    height: 100%
+}
+
+#content {
+    overflow:hidden;
+    background: mintcream;
+    height: 100%
+}
+

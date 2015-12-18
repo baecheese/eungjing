@@ -9,3 +9,6 @@ def setLoginedUserName(user_name) :
 
 def isLogined ():
     return session['username'] is not None
+
+def session_logout() :
+    session['username'] = None
