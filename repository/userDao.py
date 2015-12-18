@@ -8,22 +8,21 @@ class UserDao :
     def __init__(self):
         print('init user_dao')
 
-    ''' 수정 필요
     def create_user(self, user) :
-        sql = "INSERT INTO USERS(name, password, hint_Q, hint_A, job, smoking) VALUE ('jing', '1234qwer', 'hint_Q', 'hint_A', 'job', True);"
-        print (sql)
-        db = MySQLdb.connect("localhost","eungjing","eungjing","EUNGJING" )
+        sql = "INSERT INTO USERS(name, password, hint_Q, hint_A, job, smoking) VALUE \
+              ('%s', '%s', '%s', '%s', '%s', '%i');" % \
+              (user.name, user.password, user.hint_Q, user.hint_A, user.job, user.smoking)
+        db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING" )
         cursor = db.cursor()
         try :
             cursor.execute(sql)
-            print (cursor.fetchone())
+            db.commit()
             db.close()
             return True
         except :
             db.rollback()
             db.close()
             return False
-    '''
 
     def find_user(self, user_name) :
         user = None
