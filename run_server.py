@@ -32,8 +32,6 @@ def user_form() :
 def login() :
 	# 권한 체크
 	user = request.form
-	print (user)
-
 	if True : # db에 해당하는 user name이 있고 pw가 일치한다면,
 		session['logined_user_name'] = user['name']
 		return redirect(url_for('form_eungalog'))
