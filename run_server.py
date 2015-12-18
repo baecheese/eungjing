@@ -75,7 +75,6 @@ def form_eungalog () :
 	else :
 		return render_template('index.html')
 
-
 @app.route('/eungalog', methods=['POST'])
 def create_eungalog() :
 	json = request.json

@@ -8,10 +8,12 @@
 <body>
     <div class="container">
         <div id="sideBar">
+            <a class="logout" href="/user/logout">로그아웃 </a>
             <ul>
-                <li><a href="/user/logout">로그아웃</a></li>
-                <li class="userImage"><img src="/static/image/{{ user_image }}"></li>
-                <li id="loginedUserName">{{ user_name }}</li>
+                <li class="userImage"><img src="/static/image/{{ user_image }}.jpg"></li>
+                <li><span id="loginedUserName">{{ user_name }}</span> 님</li>
+                <li>오늘도 좋은 하루!</li>
+                <li>즐거운 X을 해보세요!!</li>
             </ul>
         </div>
         <div id="content">
