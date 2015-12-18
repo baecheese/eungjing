@@ -16,7 +16,7 @@ use EUNGJING;
 /* Table 생성 */
 Create Table USERS(
  name varchar(50) PRIMARY KEY,
- password varchar(20) Not Null,
+ password varchar(100) Not Null,
  hint_Q VARCHAR(50) NOT NULL,
  hint_A VARCHAR(50) NOT NULL,
  job VARCHAR(20) NOT NULL,

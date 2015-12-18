@@ -5,6 +5,7 @@ def getLoginedUserName () :
 
 def setLoginedUserName(user_name) :
     session['username'] = user_name
+    print(session['username'])
 
 def isLogined ():
-    return None != session['username']
+    return session['username'] is not None
