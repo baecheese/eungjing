@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, jsonify, render_template, request, url_for, session, redirect
+from flask import Flask, jsonify, render_template, request, url_for, redirect
+
 app = Flask(__name__)
 
 # eungjing module
@@ -7,22 +8,27 @@ from model.user import User
 from model.eungalog import Eungalog
 from repository.userDao import UserDao
 from repository.eungalogDao import EungalogDao
+from utility.session import *
 
 user_dao = UserDao()
 eungalog_dao = EungalogDao()
 
 @app.route('/')
 def index () :
-	return render_template('index.html')
+	if isLogined() :
+		return render_template('eungalog.html')
+	else :
+		return render_template('index.html')
 
 @app.route('/user', methods=['POST'])
 def create_user() :
+	print(">>> create user")
 	json = request.json
 	user = User(json['name'], json['password'], json['hint_Q'], json['hint_A'], json['job'], json['smoking'])
 	if user_dao.create_user(user) :
 		return "success"
 	else :
-		return "fail"
+		return "fail", 406
 
 @app.route('/user/form', methods=['GET'])
 def user_form() :
@@ -30,10 +36,9 @@ def user_form() :
 
 @app.route('/user/login', methods=['POST'])
 def login() :
-	# 권한 체크
 	user = request.form
 	if True : # db에 해당하는 user name이 있고 pw가 일치한다면,
-		session['logined_user_name'] = user['name']
+		setLoginedUserName(user['name'])
 		return redirect(url_for('form_eungalog'))
 	else :
 		return False
@@ -64,7 +69,7 @@ def read_eungalog(user_name) :
 
 @app.route('/eungalog', methods=['GET'])
 def form_eungalog () :
-	user_name = session['logined_user_name'] # 활용해서 페이지 렌더링.
+	user_name = getLoginedUserName() # 활용해서 페이지 렌더링.
 	return render_template('eungalog.html', user_name=user_name)
 
 

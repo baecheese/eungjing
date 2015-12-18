@@ -5,15 +5,13 @@ import pymysql
 from model.user import User
 
 class UserDao :
-    def __init__(self):
-        print('init user_dao')
 
     def create_user(self, user) :
-        sql = "INSERT INTO USERS(name, password, hint_Q, hint_A, job, smoking) \
-              VALUE ('%s', '%s', '%s', '%s', '%s', '%i');" % \
-              (user.name, user.password, user.hint_Q, user.hint_A, user.job, user.smoking)
         db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING" )
         cursor = db.cursor()
+
+        sql = "INSERT INTO USERS(name, password, hint_Q, hint_A, job, smoking) VALUE ('%s', '%s', '%s', '%s', '%s', '%i');" % (user.name, user.password, user.hint_Q, user.hint_A, user.job, user.smoking)
+        print(sql)
         try :
             cursor.execute(sql)
             db.commit()
