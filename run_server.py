@@ -15,14 +15,10 @@ eungalog_dao = EungalogDao()
 
 @app.route('/')
 def index () :
-	if isLogined() :
-		return render_template('eungalog.html')
-	else :
-		return render_template('index.html')
+	return render_template('index.html')
 
 @app.route('/user', methods=['POST'])
 def create_user() :
-	print(">>> create user")
 	json = request.json
 	user = User(json['name'], json['password'], json['hint_Q'], json['hint_A'], json['job'], json['smoking'])
 	if user_dao.create_user(user) :

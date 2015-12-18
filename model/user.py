@@ -11,38 +11,34 @@ class User :
 
 	def select_hint_Q (self, hint_Q) :
 		if hint_Q == "1" :
-			return u"당신이 태어난 지역은 어디인가요?"
+			return "where is your born location?"
 		elif hint_Q == "2" :
-			return u"당신이 좋아하는 색깔은 무엇인가요?"
+			return "what your like color?"
 		elif hint_Q == "3" :
-			return u"당신의 반려동물 이름은 무엇인가요?"
+			return "who is your pat?"
 		else :
-			"none";
+			None;
 
 	def select_job (self, job) :
 		if job == "1" :
-			return u"남자 사람"
+			return "man"
 		elif job == "2" :
-			return u"여자 사람"
+			return "woman"
 		elif job == "3" :
-			return u"고양이"
+			return "cat"
 		elif job == "4" :
-			return u"개"
+			return "dog"
 		elif job == "5" :
-			return u"그 외의 무언가.."
+			return "etc"
 		else :
 			"none";
 
 	def select_smoking (self, smoking) :
-		if smoking == u"YES" :
+		if smoking == "YES" :
 			return True
-		elif smoking == u"NO" :
+		elif smoking == "NO" :
 			return False
 		else :
-			"none";
-
-	def toString(self) :
-		return "name: %s\npassword: %s\nhint_Q: %s\nhint_A: %s\njob: %s\nsmoking: %r" %\
-			   (self.name, self.password, self.hint_Q, self.hint_A, self.job, self.smoking)
+			return None;
 
 
