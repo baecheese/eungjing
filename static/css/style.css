@@ -319,7 +319,9 @@ ul {
     clear: both;
 }
 
-
+.marginTopDelete {
+    margin-top: 0px !important;
+}
 
 
 
