@@ -60,17 +60,13 @@ form.sign-box {
     position: relative;
 }
 
-.form-deco img.logo {
-    left: -95px;
-    top: 90px;
-    position: relative;
-    z-index: 20;
-}
-
 .form-deco .form-title {
     font-size: 45px;
     font-weight: 900;
     text-align: center;
+    display: block;
+    height: 60px;
+    margin-top: 60%;
 }
 
 .signup-link-box {
