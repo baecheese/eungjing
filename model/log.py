@@ -44,7 +44,7 @@ class Log :
 
     def __setFeatureString__(self, feature):
         if feature == u'1' :
-            return u'특이사항 없음'
+            return u'없음'
         elif feature == u'2' :
             return u'급똥'
         elif feature == u'3' :

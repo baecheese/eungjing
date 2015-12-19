@@ -72,7 +72,19 @@
 
                 <div class="logList">
                     <ul>
-                        <li>test data</li>
+                        {% for log in log_list %}
+                            <li class="logCard shadow">
+                                <div class="bind">
+                                    <div>일시 : {{log.datetime}}</div>
+                                    <div>날씨 : {{log.weather}}</div>
+                                    <div>크기 : {{log.size}}</div>
+                                    <div>특이사항 : {{log.feature}}</div>
+                                    <div>만족도 : {{log.satisfaction}}</div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="log-contents"> {{log.drip}}</div>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

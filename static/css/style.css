@@ -165,17 +165,19 @@ ul {
 #sideBar {
     float: left;
     width: 210px;
-    background: #B451C5;
     overflow: hidden;
     height: 100%;
     color: white;
+    background: linear-gradient(135deg, #708090 22px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px), linear-gradient(225deg, #708090 22px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+    background-color: #708090;
+    background-size: 64px 128px;
 }
 
 #sideBar li {
     text-align: center;
-    margin-bottom: 10px;
     list-style: none;
     margin: 0 auto;
+    text-shadow: black 3px 2px;
 }
 
 #sideBar li.userImage {
@@ -202,6 +204,7 @@ ul {
     height: 100%;
     background: white;
     padding: 10px;
+    overflow: scroll;
 }
 
 .logout {
@@ -290,5 +293,37 @@ ul {
     margin-bottom: 10px;
     font-size: 30px;
 }
+
+.logList {
+    width: 500px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.logCard {
+    background: url('/static/image/toilet_paper.jpg') repeat;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+
+.logCard .bind {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.logCard > .bind > div {
+    float: left;
+    margin-right: 25px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
 
 

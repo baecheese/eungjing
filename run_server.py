@@ -75,7 +75,8 @@ def read_user(user_name) :
 def form_eungalog () :
 	if isLogined() :
 		user = user_dao.find_user(getLoginedUserName())
-		return render_template('eungalog.html', user_name=user.name, user_image=user.job)
+		log_list = eungalog_dao.find_all_log(user.name)
+		return render_template('eungalog.html', user_name=user.name, user_image=user.job, log_list=log_list)
 	else :
 		return render_template('index.html')
 
@@ -84,13 +85,9 @@ def create_eungalog() :
 	form = request.form
 	user = user_dao.find_user(getLoginedUserName())
 	eungalog = Eungalog(form['weather'], form['size'], form['feature'], form['satisfaction'], user.name)
-
-	# db에 저장 후
 	eungalog_dao.create_log(eungalog)
-
-	# 전체 로그 리스트를 template에 전달
-
-	return render_template('eungalog.html', user_name=user.name, user_image=user.job)
+	log_list = eungalog_dao.find_all_log(user.name)
+	return render_template('eungalog.html', user_name=user.name, user_image=user.job, log_list=log_list)
 
 # 비밀키
 app.secret_key="dfdsfdafsdfa181280083ljkandfan12974ldsfjassfasdfalsknfafnsd"
