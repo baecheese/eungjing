@@ -1,3 +1,5 @@
+drop table eungalog;
+
 CREATE TABLE `eungalog` (
 		`id` bigint PRIMARY KEY AUTO_INCREMENT
 	, user_name varchar(50)
@@ -6,5 +8,6 @@ CREATE TABLE `eungalog` (
 	, feature varchar(15) not null
 	, satisfaction varchar(8) not null
 	, eunga_drip text
+	, createDate DATETIME DEFAULT CURRENT_TIMESTAMP
 	, FOREIGN KEY (user_name) REFERENCES users (name)
 );
