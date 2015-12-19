@@ -7,6 +7,11 @@ from model.eungalog import Eungalog
 from repository.userDao import UserDao
 from repository.eungalogDao import EungalogDao
 
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 user_dao = UserDao()
 eungalog_dao = EungalogDao()
 
@@ -19,8 +24,14 @@ def test_create_user() :
     user = User("pfdd2dfdf", "1234qwer", "1", "1", "1", '1')
     print user_dao.create_user(user) == True
 
+def test_find_all_log() :
+    print('>> find_all_log test')
+    data = eungalog_dao.find_all_log("testID")
+    print (data[0].__dict__)
+
 
 if __name__ == "__main__" :
     print ("> user dao test")
-    test_find_user()
-    test_create_user()
+    #test_find_user()
+    #test_create_user()
+    test_find_all_log()
