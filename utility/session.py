@@ -8,7 +8,10 @@ def setLoginedUserName(user_name) :
     print(session['username'])
 
 def isLogined ():
-    return session['username'] is not None
+    try :
+        return session['username'] is not None
+    except :
+        False
 
 def session_logout() :
     session['username'] = None

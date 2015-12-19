@@ -2,6 +2,12 @@
 from flask import Flask, jsonify, render_template, request, url_for, redirect
 from flask.ext.bcrypt import Bcrypt
 
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
@@ -54,9 +60,7 @@ def isMember(user) :
 
 @app.route('/user/logout', methods=['GET'])
 def logout ():
-	print(getLoginedUserName())
 	session_logout()
-	print(getLoginedUserName())
 	return redirect(url_for('index'))
 
 
@@ -79,21 +83,14 @@ def form_eungalog () :
 def create_eungalog() :
 	form = request.form
 	user = user_dao.find_user(getLoginedUserName())
-	print (user.__dict__)
-	print (form)
 	eungalog = Eungalog(form['weather'], form['size'], form['feature'], form['satisfaction'], user.name)
-	print (eungalog.__dict__)
-	# databas에 eungalog를 저장한다.
-	return render_template('eungalog.html', user_name=user.name, user_image=user.job)
 
-@app.route('/user/<string:user_name>/eungalog', methods=['GET'])
-def read_eungalog(user_name) :
-	# 유저 데이터를 받을 것.
-	# 데이터베이스에서 user_name 기준으로 데이터를 꺼내올 것. 리스트로.
-	# 시간 역순 대로 돌려줄 것.(가장 최근 것이 가장 위로)
-	eungalog = Eungalog("1", "1", "2", "7", user_name)
-	# user class를 json으로 변경.
-	return jsonify(eungalog.__dict__)
+	# db에 저장 후
+	eungalog_dao.create_log(eungalog)
+
+	# 전체 로그 리스트를 template에 전달
+
+	return render_template('eungalog.html', user_name=user.name, user_image=user.job)
 
 # 비밀키
 app.secret_key="dfdsfdafsdfa181280083ljkandfan12974ldsfjassfasdfalsknfafnsd"

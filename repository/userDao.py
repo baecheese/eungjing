@@ -4,11 +4,16 @@ import pymysql
 
 from model.user import User
 
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 class UserDao :
 
     def create_user(self, user) :
         try :
-            db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING")
+            db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING", charset='utf8', init_command='SET NAMES UTF8')
             cursor = db.cursor()
             sql = "INSERT INTO USERS(name, password, hint_Q, hint_A, job, smoking) \
             VALUE ('%s', '%s', '%s', '%s', '%s', '%i');" % \
