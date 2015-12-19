@@ -17,12 +17,63 @@
             </ul>
         </div>
         <div id="content">
-            <form class="logForm">입력 폼</form>
-            <div>그래프</div>
-            <div class="logList">
-                <ul>
-                    <li>test data</li>
-                </ul>
+            <div class="contentBody">
+                <form class="logForm" action="/eungalog" method="post">
+                    <div>
+                        <ul>
+                            <li>
+                                <label for="weather">지금 날씨 어때요?</label>
+                                <select name="weather" id="weather">
+                                    <option value="1">맑음</option>
+                                    <option value="2">흐림</option>
+                                    <option value="3">구림</option>
+                                    <option value="4">비</option>
+                                    <option value="5">눈</option>
+                                    <option value="6">불벼락</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="size">얼마나 컸나요?</label>
+                                <select name="size" id="size">
+                                    <option value="1">인간초월</option>
+                                    <option value="2">상</option>
+                                    <option value="3">중</option>
+                                    <option value="4">하</option>
+                                    <option value="5">. <- 이 정도..?</option>
+                                    <option value="6">하아.... 실패..</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="feature">뭔가 특이사항이 있었어요?</label>
+                                <select name="feature" id="feature">
+                                    <option value="1">특이사항 없음</option>
+                                    <option value="2">급똥</option>
+                                    <option value="3">치질</option>
+                                    <option value="4">변비</option>
+                                    <option value="5">그 외</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="satisfaction">만족한 정도를 알려주세요</label>
+                                <select name="satisfaction" id="satisfaction">
+                                    <option value="1">인생 최고의 날</option>
+                                    <option value="2">극상의 만족</option>
+                                    <option value="3">보통</option>
+                                    <option value="4">애매함</option>
+                                    <option value="5">불만족</option>
+                                    <option value="6">분노</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="submit">확인</button>
+                </form>
+
+                <div class="logList">
+                    <ul>
+                        <li>test data</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

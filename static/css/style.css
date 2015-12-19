@@ -182,12 +182,25 @@ ul {
     margin-top: 10px;
     width: 150px;
     height: 150px;
+    margin-bottom: 10px;
+}
+
+#sideBar li.userImage img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid white;
 }
 
 #content {
     overflow:hidden;
     background: mintcream;
     height: 100%
+}
+
+.contentBody {
+    float: right;
+    width: 700px;
+    height: 100%;
 }
 
 .logout {

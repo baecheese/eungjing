@@ -77,11 +77,14 @@ def form_eungalog () :
 
 @app.route('/eungalog', methods=['POST'])
 def create_eungalog() :
-	json = request.json
-	eungalog = Eungalog(json['weather'], json['size']
-						, json['feature'], json['satisfaction'], json['user_name'])
+	form = request.form
+	user = user_dao.find_user(getLoginedUserName())
+	print (user.__dict__)
+	print (form)
+	eungalog = Eungalog(form['weather'], form['size'], form['feature'], form['satisfaction'], user.name)
+	print (eungalog.__dict__)
 	# databas에 eungalog를 저장한다.
-	return jsonify(eungalog.__dict__)
+	return render_template('eungalog.html', user_name=user.name, user_image=user.job)
 
 @app.route('/user/<string:user_name>/eungalog', methods=['GET'])
 def read_eungalog(user_name) :
