@@ -29,7 +29,7 @@ class EungalogDao :
         try :
             db = pymysql.connect("localhost","eungjing","eungjing","EUNGJING", charset='utf8', init_command='SET NAMES UTF8')
             cursor = db.cursor()
-            sql = "select * from eungalog where user_name='%s';" % (user_name)
+            sql = "select * from eungalog where user_name='%s' order by createDate desc;" % (user_name)
             print(sql)
             cursor.execute(sql)
             result = []
