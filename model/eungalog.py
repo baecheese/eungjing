@@ -54,7 +54,7 @@ class Eungalog :
 		elif self.feature == "3" :
 			result = u"뭐, 보통의 똥이었다.(새침)"
 		elif self.feature == "4" :
-			result = u"카네기는 이런 말을 했다. '큰일을 먼저 하라. 작은 일은 저절로 해결 될 것이다.' 관장약을 꺼낼 때가 왔다."
+			result = u"카네기는 이런 말을 했다. 큰일을 먼저 하라. 작은 일은 저절로 해결 될 것이다. 관장약을 꺼낼 때가 왔다."
 		elif self.feature == "5" :
 			result = u"어리석은 닝겐들아!! 니들의 잣대로 날 판단하지마라!!!!"
 		return result
