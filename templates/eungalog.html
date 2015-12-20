@@ -109,8 +109,8 @@
 
         function deleteLog (event) {
             var logId = event.target.parentElement.querySelector('.hiddenId').value;
+            event.target.parentElement.style.backgroundColor = "yellow";
             alert('선택하신 역사를 삭제합니다.');
-
             fetch("/eungalog/"+logId, { method: "DELETE" })
                     .then(function(res) {
                         if (res.ok) {
