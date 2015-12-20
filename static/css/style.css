@@ -365,3 +365,18 @@ ul {
     hsla(210,50%,40%, .25) 0 -5px 6px 4px, /* outer SD */
     hsla(210,80%,95%,   1) 0  5px 6px 4px; /* outer HL */
 }
+
+.deleteButton {
+    float: right;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    color: gray;
+    font-size: 10px;
+}
+
+.deleteButton:hover {
+    color: #2196F3;
+    cursor: pointer;
+    font-size: 18px;
+}

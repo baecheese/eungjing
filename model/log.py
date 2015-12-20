@@ -6,13 +6,14 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 class Log :
-    def __init__(self, drip, weather, size, feature, satisfaction, datetime):
+    def __init__(self, drip, weather, size, feature, satisfaction, datetime, id):
         self.drip = drip
         self.weather = self.__setWeatherString__(weather)
         self.size = self.__setSizeString__(size)
         self.feature = self.__setFeatureString__(feature)
         self.satisfaction = self.__setSatisfactionString__(satisfaction)
         self.datetime = datetime
+        self.id = id
 
     def __setWeatherString__(self, weather):
         if weather == u'1' :

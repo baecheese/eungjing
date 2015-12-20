@@ -1,17 +1,24 @@
+# -*- coding: utf-8 -*-
+
 from flask import session
 
+import traceback
+
 def getLoginedUserName () :
-    return session['username']
+    try :
+        return session['user']
+    except :
+        print(traceback.format_exc())
 
 def setLoginedUserName(user_name) :
-    session['username'] = user_name
-    print(session['username'])
+    session['user'] = user_name
+    print(session['user'])
 
 def isLogined ():
     try :
-        return session['username'] is not None
+        return session['user'] is not None
     except :
         False
 
 def session_logout() :
-    session['username'] = None
+    session['user'] = None

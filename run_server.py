@@ -89,6 +89,13 @@ def create_eungalog() :
 	log_list = eungalog_dao.find_all_log(user.name)
 	return render_template('eungalog.html', user_name=user.name, user_image=user.job, log_list=log_list)
 
+@app.route('/eungalog/<string:logId>', methods=['DELETE'])
+def delete_eungalog(logId) :
+	print (eungalog_dao.delete_by_log_id(logId))
+	return "success", 204
+
+
+
 # 비밀키
 app.secret_key="dfdsfdafsdfa181280083ljkandfan12974ldsfjassfasdfalsknfafnsd"
 
