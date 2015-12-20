@@ -82,7 +82,8 @@ form.sign-box {
 form.join-box {
     border: 1px solid black;
     margin: 0 auto;
-    width: 355px;
+    margin-top: 15px;
+    width: 390px;
     position: relative;
     padding: 50px;
     padding-top: 20px;
