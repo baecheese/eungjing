@@ -52,7 +52,7 @@ class Eungalog :
 		elif self.feature == "2" :
 			result = u"내가 사장님을 밀치고 왔다는 건 이미 거사가 끝난 후에나 생각이 났다."
 		elif self.feature == "3" :
-			result = u"뭐, 보통의 똥이었다.(새침)"
+			result = u"이번 새해에는 거사를 치룰 준비가 되어있다.. 2016년...병신년(丙申年)..."
 		elif self.feature == "4" :
 			result = u"카네기는 이런 말을 했다. 큰일을 먼저 하라. 작은 일은 저절로 해결 될 것이다. 관장약을 꺼낼 때가 왔다."
 		elif self.feature == "5" :
@@ -66,11 +66,11 @@ class Eungalog :
 		elif self.satisfaction == "2" :
 			result = u"역시 세상의 정답은 내 안에 있었다. 하.하.하.하!"
 		elif self.satisfaction == "3" :
-			result = u"훗.."
+			result = u"후후훗.. 훗훗....후우우우웃..."
 		elif self.satisfaction == "4" :
 			result = u"룰루랄라~"
 		elif self.satisfaction == "5" :
-			result = u" 화장실에서 나오며 생각했다. 내가 뭘 하고 나왔더라?"
+			result = u"화장실에서 나오며 생각했다. 내가 뭘 하고 나왔더라?"
 		elif self.satisfaction == "6" :
 			result = u"똥조차도 나를 무시하는군."
 		elif self.satisfaction == "7" :
