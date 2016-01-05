@@ -52,7 +52,7 @@ class Eungalog :
 		elif self.feature == "2" :
 			result = u"내가 사장님을 밀치고 왔다는 건 이미 거사가 끝난 후에나 생각이 났다."
 		elif self.feature == "3" :
-			result = u"이번 새해에는 거사를 치룰 준비가 되어있다.. 2016년...병신년(丙申年).."
+			result = u"이번 새해에는 거사를 치룰 준비가 되어있다.."
 		elif self.feature == "4" :
 			result = u"카네기는 이런 말을 했다. 큰일을 먼저 하라. 작은 일은 저절로 해결 될 것이다. 관장약을 꺼낼 때가 왔다."
 		elif self.feature == "5" :
