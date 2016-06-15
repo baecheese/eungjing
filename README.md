@@ -4,3 +4,5 @@
 - contributor
   - baecheese
   - hwiba
+
+https://github.com/baecheese/eungjing/wiki
